@@ -12,7 +12,7 @@ public class Test1Test {
 	
 	@Test
 	@Parameters({"browser", "SiteURL"})
-	public void testclass1(String browserName, String SiteURL)
+	public void testclass1(String browserName, String SiteURL) throws InterruptedException
 	{
 		
 		
@@ -22,6 +22,8 @@ public class Test1Test {
 		
 		if(browserName.equalsIgnoreCase("chrome"))
 		{
+			
+			Thread.sleep(20000);
 		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\src\\test\\java\\resources\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.get(SiteURL);
@@ -30,6 +32,7 @@ public class Test1Test {
 		
 		else if(browserName.equalsIgnoreCase("firefox"))
 		{
+			Thread.sleep(20000);
 			System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"\\src\\test\\java\\resources\\geckodriver.exe");
 			WebDriver driver = new FirefoxDriver();
 			driver.get(SiteURL);		
